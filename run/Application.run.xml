@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Application" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.example.converter.Main" />
+    <module name="text-converter" />
+    <option name="PROGRAM_PARAMETERS" value="resources/small.in" />
+    <option name="VM_PARAMETERS" value="-Xmx32m" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
