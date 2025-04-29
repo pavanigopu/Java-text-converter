@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 public class TextParser {
     private static final Set<String> ABBREVIATIONS = Set.of("Mr.", "Mrs.", "Dr.", "Prof.", "Jr.", "Sr.", "St.", "e.g.", "i.e.");
     private static final Pattern END_PUNCTUATION = Pattern.compile("([.!?])\\s+");
-    private static final Pattern WORD_PATTERN = Pattern.compile("[\\p{L}\\p{M}\\p{N}']+\\.?");
+    private static final Pattern WORD_PATTERN = Pattern.compile("[\\p{L}\\p{M}\\p{N}'’]+\\.?");
 
     private final StringBuilder buffer = new StringBuilder();
     private final Consumer<Sentence> consumer;

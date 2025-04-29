@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class XmlFormatterTest {
 
     @Test
-    public void TestXmlWriting() throws IOException {
+    public void testXmlWriting() throws IOException {
         File temp = File.createTempFile("test", ".csv");
         try (XmlFormatter formatter = new XmlFormatter(temp.getAbsolutePath())) {
             formatter.writeSentence(new Sentence(Arrays.asList("cat", "dog", "ant", "Mr.")));

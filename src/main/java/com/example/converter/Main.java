@@ -11,6 +11,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
 
@@ -28,12 +29,15 @@ public class Main {
             System.err.println("Input file not found: " + inputFile.getPath());
             return;
         }
+
+        int maxWords = findMaxWordCount(inputFile).get();
+
         String outputXmlFileName = Util.getOutputXmlFileName(inputFile);
         String outputCsvFileName = Util.getOutputCsvFileName(inputFile);
 
         try (
                 XmlFormatter xmlOut = new XmlFormatter(outputXmlFileName);
-                CsvFormatter csvOut = new CsvFormatter(outputCsvFileName);
+                CsvFormatter csvOut = new CsvFormatter(outputCsvFileName, maxWords);
                 BufferedReader reader = new BufferedReader(
                         new InputStreamReader(new FileInputStream(inputFile), StandardCharsets.UTF_8), FOUR_KB)
         ) {
@@ -55,5 +59,22 @@ public class Main {
         }
 
         System.out.println("Streaming completed. Output written to " + outputXmlFileName + " and " + outputCsvFileName);
+    }
+
+    private static AtomicInteger findMaxWordCount(File inputFile) throws IOException {
+        AtomicInteger max = new AtomicInteger();
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(inputFile), StandardCharsets.UTF_8))) {
+            TextParser parser = new TextParser(sentence -> {
+                int size = sentence.getWords().size();
+                if (size > max.get()) max.set(size);
+            });
+            char[] buffer = new char[FOUR_KB];
+            int read;
+            while ((read = reader.read(buffer)) != -1) {
+                parser.processChunk(new String(buffer, 0, read));
+            }
+            parser.flush();
+        }
+        return max;
     }
 }

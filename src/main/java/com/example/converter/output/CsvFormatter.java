@@ -10,10 +10,9 @@ public class CsvFormatter implements AutoCloseable {
     private final BufferedWriter writer;
     private int sentenceCount = 1;
 
-    public CsvFormatter(String filePath) throws IOException {
+    public CsvFormatter(String filePath, int maxWords) throws IOException {
         writer = new BufferedWriter(new FileWriter(filePath));
-        writer.write("Sentence");
-        for (int i = 1; i <= 30; i++) {
+        for (int i = 1; i <= maxWords; i++) {
             writer.write(", Word" + i);
         }
         writer.write("\n");

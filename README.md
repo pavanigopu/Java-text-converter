@@ -7,8 +7,9 @@ This application takes text file as input, reads the text and converts it into c
 2) Handles the large files. Added JVM argument(-Xmx32m) to be able to test locally. 
 3) Converts to both XML and CSV formatted files.
 4) Parser allows whitespaces. And considers only punctuations [.?!] as end of the sentence.
-5) Abbreviations like "Mr." are not considered as end of the sentence. 
-6) Added unit tests covering the above cases.
+5) Abbreviations like "Mr." are not considered as end of the sentence.
+6) CSV header will contain header with words of maxWordCount like ", Word1, Word2, Word3...maxWordCountOfAllSentences"
+7) Added unit tests covering the above cases.
 
 Note: Made Sentence class usable as key for Map but not used in this Application. Because
 
