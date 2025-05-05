@@ -13,7 +13,7 @@ public class CsvFormatter implements AutoCloseable {
     public CsvFormatter(String filePath, int maxWords) throws IOException {
         writer = new BufferedWriter(new FileWriter(filePath));
         for (int i = 1; i <= maxWords; i++) {
-            writer.write(", Word" + i);
+            writer.write(", Word " + i);
         }
         writer.write("\n");
     }

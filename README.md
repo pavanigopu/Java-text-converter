@@ -8,7 +8,7 @@ This application takes text file as input, reads the text and converts it into c
 3) Converts to both XML and CSV formatted files.
 4) Parser allows whitespaces. And considers only punctuations [.?!] as end of the sentence.
 5) Abbreviations like "Mr." are not considered as end of the sentence.
-6) CSV header will contain header with words of maxWordCount like ", Word1, Word2, Word3...maxWordCountOfAllSentences"
+6) CSV header will contain header with words of maxWordCount like ", Word 1, Word 2, Word 3...maxWordCountOfAllSentences"
 7) Added unit tests covering the above cases.
 
 Note: Made Sentence class usable as key for Map but not used in this Application. Because
@@ -28,7 +28,7 @@ mvn clean compile package
 ```
 
 ## Running
-This application can be run by running the below command at the terminal or run the ```run.bat``` batch file in the ```run``` folder
+This application can be run by running the below command at the terminal.
 
 ```java -Xmx32m -jar target/text-converter-1.0-SNAPSHOT.jar resources/small.in```
 
@@ -36,5 +36,5 @@ Change file name ```resources/small.in``` to whatever file that need to be teste
 
 ## Debugging
 
-Below application configuration can be found at ```run```  folder. 
+Below application configuration can be found at ```.run```  folder. 
 ```Application.run.xml``` 

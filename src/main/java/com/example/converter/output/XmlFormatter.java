@@ -15,11 +15,11 @@ public class XmlFormatter implements AutoCloseable {
     }
 
     public void writeSentence(Sentence sentence) throws IOException {
-        writer.write("    <sentence>\n");
+        writer.write("<sentence>");
         for (String word : sentence.words()) {
-            writer.write("        <word>" + word + "</word>\n");
+            writer.write("<word>" + word + "</word>");
         }
-        writer.write("    </sentence>\n");
+        writer.write("</sentence>\n");
     }
 
     @Override

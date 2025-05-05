@@ -33,7 +33,7 @@ public class CsvFormatterTest {
 
         try (BufferedReader reader = Files.newBufferedReader(temp.toPath())) {
             String header = reader.readLine();
-            assertEquals(", Word1, Word2, Word3, Word4", header);
+            assertEquals(", Word 1, Word 2, Word 3, Word 4", header);
         }
     }
 }
